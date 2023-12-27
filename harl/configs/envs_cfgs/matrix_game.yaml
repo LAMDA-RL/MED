@@ -1,0 +1,5 @@
+map_name: various_solutions
+n_solutions: 3
+solution_size: [2,2,2]
+solution_reward: 1
+horizon: 1

@@ -1,0 +1,7 @@
+task: MoveBox
+map: default
+obs_type: flatten_img
+n_agents: 2
+map_size: [13,13]
+horizon: 30
+init_pos: [[1,1],[1,1]]

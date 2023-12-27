@@ -1,0 +1,91 @@
+seed:
+  # whether to use the specified seed
+  seed_specify: True
+  # seed
+  seed: 1
+device:
+  # whether to use CUDA
+  cuda: True
+  # whether to set CUDA deterministic
+  cuda_deterministic: True
+  # arg to torch.set_num_threads
+  torch_threads: 4
+train:
+  n_rollout_threads: 8
+  n_xp_rollout_threads: 14
+  use_wandb: False
+  n_iter: 2000
+  n_sp_ts: 10000
+  n_xp_ts: 10000
+  flatten_traj: False
+  parent_only: False
+  num_xp_pair_sample: 1000 # sample all pairs by default
+  n_sp_episodes: 50
+  n_xp_episodes: 50
+  sample_step: True
+
+  shared_z: False
+  z_discrete: True
+  z_dim: 8
+  use_hypernet: False
+  pg_xp_max_only: True
+  value_xp_max_only: False
+
+  mb_size: 0
+  use_bandit: False
+  bandit_eps: 0.1
+  bandit_window_size: 3
+  uniform_selector_keep_last: False
+
+  anneal_lr: False
+  anneal_xp: False
+  xp_coef_stop: 0.1
+  xp_coef_start: 0.0
+  n_anneal_iter: 1000
+eval:
+  use_eval: True
+  n_eval_rollout_threads: 8
+  eval_interval: 500
+  n_eval_ep: 10
+  n_eval_ts: 200
+  eval_all_pairs: True
+  vary_z_eval: False
+algo:
+  pop_size: 8
+model:
+  agent_name: IncompatMAPPOZ
+  ent_coef: 0.03
+  xp_coef: 0.3
+  discrim_coef: 0.5
+  vf_coef: 1.0 # 0.5
+
+  clip_param: 0.3
+  vf_clip_param: 10
+  gamma: 0.99
+  gae_lambda: 0.95
+
+  z_dim: 8
+  epochs: 15
+  num_mb: 5
+  lr: 0.0005
+
+  hidden_size: 64
+  num_hidden: 2
+  discrim_hidden_size: 64
+
+  pol_init_var: 1.0
+render:
+  render: False
+  render_only_sp: True
+  render_mode: 'rgb_array'
+logger:
+  # logging directory
+  log_dir: "./results"
+  # whether to use tensorboard for logging
+  use_tensorboard: False
+  # whether to use wandb for logging
+  use_wandb: False
+  # whether to use pyinstrument for profiling
+  use_profiler: True
+  # statistic profiler sampling gap (seconds)
+  profiler_interval: 0.1
